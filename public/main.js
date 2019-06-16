@@ -68,6 +68,7 @@ if(chartContainer) {
     .then( res => res.json() )
     .then( votes => {
       voteCount = votes.length
+      chart.set('title', { text: `OS Results based on ${voteCount} votes` } )
       const voteValues = votes.reduce((values, data)=>{
         if(values.hasOwnProperty(data.vote)) {
           values[data.vote] += data.points
